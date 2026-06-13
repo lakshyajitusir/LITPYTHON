@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Customer Database</title>
+</head>
+<body>
+
+<h1>Customer Database</h1>
+
+{% if messages %}
+
+    {% for message in messages %}
+
+        <h3>{{ message }}</h3>
+
+    {% endfor %}
+
+{% endif %}
+
+
+<a href="/create/">
+
+Add Customer
+
+</a>
+
+<hr>
+
+
+{% for customer in customers %}
+
+<h2>{{ customer.name }}</h2>
+
+<p>Email : {{ customer.email }}</p>
+
+<p>Phone : {{ customer.phone }}</p>
+
+<p>Address : {{ customer.address }}</p>
+
+
+<a href="/update/{{customer.id}}/">
+
+Update
+
+</a>
+
+<br><br>
+
+
+<a href="/delete/{{customer.id}}/">
+
+Delete
+
+</a>
+
+<hr>
+
+{% endfor %}
+
+</body>
+</html>
